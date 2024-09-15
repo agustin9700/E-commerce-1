@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- head -->
+<%- include ("./partials/head",{title: "Productos" ,bootstrapActive: true})%>
+
+  <body>
+    <!-- header -->
+    <%- include ("./partials/header", { userlogueado: userlogueado, productsCart: productsCart }) %>
+
+      <div class="main-list">
+
+        <section id="pizza" class="section-category">
+          <h2 class="tituloSeccion">PIZZAS</h2>
+          <div class="container-article-list">
+            <% productos.filter(p=> p.categorias.name.toLowerCase() === 'pizza').forEach(p=> {%>
+              <article class="article-product">
+                <a href="./productos/detalle/<%= p.id %>" ><figure class="container-img-product">
+                  <img src="<%= p.image %>" alt="">
+                </figure>
+               
+                <div class="precio-product">
+                  <span>
+                    <%= p.name %>
+                  </span>
+                  <span>$<%= p.price %></span>
+                  <span>
+                    <%= p.discount ? p.discount + '% OFF' : ' ' %>
+                      <% if (!p.discount) { %>
+                        <br>
+                        <% } %>
+                  </span>
+
+                   </a>
+                  <button onclick="addProductCart('<%= p.id %>')">Agregar al carrito</button>
+                </div>
+              </article>
+              <% }) %>
+
+          </div>
+        </section>
+
+
+
+        <section id="hamburguesa" class="section-category">
+          <h2 class="tituloSeccion">HAMBURGUESAS</h2>
+          <div class="container-article-list">
+            <% productos.filter(p=> p.categorias.name.toLowerCase() === 'hamburguesa').forEach(p=> {%>
+              <article class="article-product">
+                <a href="./productos/detalle/<%= p.id %>" ><figure class="container-img-product">
+                  <img src="<%= p.image %>" alt="">
+                </figure>
+               
+                <div class="precio-product">
+                  <span>
+                    <%= p.name %>
+                  </span>
+                  <span>$<%= p.price %></span>
+                  <span>
+                    <%= p.discount ? p.discount + '% OFF' : ' ' %>
+                      <% if (!p.discount) { %>
+                        <br>
+                        <% } %>
+                  </span>
+
+                   </a>
+                  <button onclick="addProductCart('<%= p.id %>')">Agregar al carrito</button>
+                </div>
+              </article>
+              <% }) %>
+
+          </div>
+        </section>
+        <section id="papas" class="section-category">
+          <h2 class="tituloSeccion">PAPAS FRITAS</h2>
+          <div class="container-article-list">
+            <% productos.filter(p=>p.categorias.name.toLowerCase() === 'papas frita').forEach(p=> {%>
+              <article class="article-product">
+                <a href="./productos/detalle/<%= p.id %>" ><figure class="container-img-product">
+                  <img src="<%= p.image %>" alt="">
+                </figure>
+               
+                <div class="precio-product">
+                  <span>
+                    <%= p.name %>
+                  </span>
+                  <span>$<%= p.price %></span>
+                  <span>
+                    <%= p.discount ? p.discount + '% OFF' : ' ' %>
+                      <% if (!p.discount) { %>
+                        <br>
+                        <% } %>
+                  </span>
+
+                   </a>
+                  <button onclick="addProductCart('<%= p.id %>')">Agregar al carrito</button>
+                </div>
+              </article>
+              <% }) %>
+
+          </div>
+        </section>
+
+      </div>
+
+      <script src="/js/cart/addProductCart.js"></script>
+      <%- include ("./partials/footer") %>
+
+        <!--Boostrap script-->
+        <%- include ("./partials/scripts") %>
+  </body>
+
+</html>

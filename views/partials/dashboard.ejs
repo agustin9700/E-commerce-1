@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<!-- head -->
+<%- include ("../partials/head",{title: "Administración" ,bootstrapActive: true})%>
+
+<body>
+
+    <main class="main-admin">
+
+        <div class="barraLateral">
+
+        <div class="logo">
+            <a href="/"><img src="\images\logos\logo.ico" alt=""></a>
+        </div>
+
+        <div class="menu">
+ 
+            <ul class= menu-ul>
+
+                <li class="li-dash">
+                    <i class="fa-solid fa-user"></i>
+                    <a href="/user/perfil"><p>Perfil</p></a>
+                </li>
+                
+                <li class="li-dash">
+                    <i class="fa-solid fa-cubes-stacked"></i>
+                    <a href="#"><p>Stock</p></a>
+                </li>
+                
+                <li class="li-dash">
+                    <i class="fa-solid fa-circle-plus"></i>
+                    <a href="/admin/crearProduct"><p>Agregar producto</p></a>
+                </li>
+                
+                <li class="li-dash">
+                    <i class="fa-solid fa-layer-group"></i>
+                    <a href="/admin/pedidos"><p>Pedidos</p></a>
+                </li>
+                
+                <li class="li-dash">
+                    <i class="fa-solid fa-box-archive"></i>
+                    <a href="#"><p>Archivos </p></a>
+                </li>
+                
+                <li class="li-dash">
+                    <i class="fa-solid fa-inbox"></i>
+                    <a href="#"><p>Mensajes</p></a>
+                </li>
+                
+
+            </ul>
+            <ul class="menu-ul "> 
+                <li class="li-dash">
+                    <i class="fa-solid fa-power-off"></i>
+                    <a href="/admin/logout"><p>Cerrar Sesión</p></a>
+                </li>
+            </ul>
+        </div>
+        </div> 
+
+        <div class="container-superior">
+    
+            <div class="buscador"> 
+              <input type="search" placeholder="Search..." />
+              <i class="fas fa-search"></i>
+            </div>
+
+            <div class="adminUser">
+                <img src="/images/<%= userlogin.imageProfile ? userlogin.imageProfile : 'default.jpg' %>" alt="ImagePerfil">
+                <h5> <%= userlogin.name  %></h5>
+                <h6> <%= userlogin.user %></h6>
+            </div>
+        </div>                  
+      
+    </main>
+
+<!--Contenido de las demas vistas-->
+    <%- views %>
+
+<!--Scripts Bootstrap-->
+<script src="/js/functions/dashboard.js"></script>
+
+</body>
+
+</html>

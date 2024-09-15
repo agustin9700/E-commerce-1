@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+    <!-- head -->
+    <%- include ("./partials/head", {title: "Registrarse",bootstrapActive: true})%>
+<body class="bodyRegister">
+    <img class="pizzaRegister" src="/images/pizzaRegister.png" alt="">
+    <main class="mainRegister">
+        <a href="/"><i class="fa-solid fa-angle-left volverRegister"></i></a>
+        <div class="fotosRegister">
+            <img class="logoRegister" src="/images/logo.png" alt="">
+        </div>
+            <form class="formRegister" id="formularioRegistro" action="/user/register" method="POST" enctype="multipart/form-data">
+                <div class="divFormRegister">
+                <div class="divNombreRegister divInputsRegister ">
+                    <label class="tituloInputRegister" for="nombreRegister">Nombre</label>
+                    <input class="barraInputRegister form-control " type="text" name="name" id="nombreRegister" value="<%= locals.old && locals.old.name ? locals.old.name : '' %>">
+                    <% if (locals.errors) { %>
+                        <% locals.errors.forEach(error => { %>
+                            <% if (error.path === 'name') { %>
+                                <span class="feedback"><%= error.msg %></span>   
+                            <% } %>
+                        <% }) %>    
+                    <% } %>           
+                </div>
+                <span class="text-danger d-none spanNombre">error</span>
+                <span class="text-danger d-none spanNombre2">error</span>
+                <span class="text-danger d-none spanNombre3">error</span>
+              
+                <div class="divUsuarioRegister divInputsRegister">
+                    <label class="tituloInputRegister" for="usuarioRegister">Usuario</label>
+                    <input class="barraInputRegister form-control" type="text" name="user" value="<%= locals.old && locals.old.user ? locals.old.user : '' %>" id="usuarioRegister" >                
+                    <% if (locals.errors) { %>
+                        <% locals.errors.forEach(error => { %>
+                            <% if (error.path === 'user') { %>
+                                <span class="feedback"><%= error.msg %></span>   
+                            <% } %>
+                        <% }) %>    
+                    <% } %>  
+                    
+                </div>
+                <span class="text-danger d-none spanUsuario">error</span>
+                <span class="text-danger d-none spanUsuario2">error</span>
+                <span class="text-danger d-none spanUsuario3">error</span>
+                <div class="divEmailRegister divInputsRegister">
+                    <label class="tituloInputRegister" for="emailRegister">Email</label>
+                    <input class="barraInputRegister form-control" type="email" name="email" id="emailRegister" value="<%= locals.old && locals.old.email ? locals.old.email : '' %>">
+                    
+                    <% if (locals.errors) { %>
+                        <% locals.errors.forEach(error => { %>
+                            <% if (error.path === 'email') { %>
+                                <span class="feedback"><%= error.msg %></span>   
+                            <% } %>
+                        <% }) %>    
+                    <% } %>   
+                           
+                </div>
+                <span class="text-danger d-none spanEmail">error</span>
+              
+                <div class="divContrasenaRegister divInputsRegister">
+                    <label class="tituloInputRegister" for="contrasenaRegister">Contraseña</label>
+                    <input class="barraInputRegister form-control" type="password" name="password" id="contrasenaRegister" value="<%= locals.old && locals.old.password ? locals.old.password : '' %>">
+
+                    <% if (locals.errors) { %>
+                        <% locals.errors.forEach(error => { %>
+                            <% if (error.path === 'password') { %>
+                                <span class="feedback"><%= error.msg %></span>   
+                            <% } %>
+                        <% }) %>    
+                    <% } %>   
+                          
+                </div>
+                <span class="text-danger d-none spanContrasena">error</span>
+                <span class="text-danger d-none spanContrasena2">error</span>
+                <span class="text-danger d-none spanContrasena3">error</span>
+                <div class="mb-2 fs-5 divInputsRegister">
+                    <label for="fotoperfil" class="form-label tituloInputRegister">Foto de perfil</label>
+                    <input class="form-control" type="file" id="fotoperfil" name="imageProfile" accept=".jpg, .jpeg, .png">
+
+                    <% if (locals.errors) { %>
+                        <% locals.errors.forEach(error => { %>
+                            <% if (error.path === 'imageProfile') { %>
+                                <span class="feedback"><%= error.msg %></span>   
+                            <% } %>
+                        <% }) %>    
+                    <% } %>   
+                        
+                </div>
+                <span class="text-danger d-none spanImg">error</span>
+                <div class="divAceptoRegiter">
+                    <input class="checkboxRegiste form-controler" type="checkbox" name="tic" value="terminosAceptados">
+                    <p class="pTerminosRegister">
+                        Estoy de acuerdo con los <a class="aRegister" href="">términos de servicio</a>, la <a class="aRegister" href="">política de privacidad</a> y la <a class="aRegister" href="">configuración de notificación</a> predeterminada de <a class="aComoRegister" href="/">como en casa</a>.
+                    </p>
+                </div>
+                <div class="divBotonRegister">
+                    <button class="enviarRegister" type="submit">Crear cuenta</button>
+                </div>
+            </div>
+        </form>
+        <span class="text-danger d-none text-center fs-5 m-2 spanForm ">error</span>
+        <p class="loguearRegister">¿Ya tienes una cuenta? <a class="iniciarSesionRegister" href="/user/login">Iniciar sesión</a></p>
+        <p class="reCAPTCHAregister">
+            Este sitio está protegido por reCAPTCHA y se aplican la <a class="aCAPTCHA" href="https://policies.google.com/privacy">política de privacidad</a>  y los <a class="aCAPTCHA" href="https://policies.google.com/terms">Términos de servicio de Google</a>.
+        </p>
+    </main>
+    <script src="/js/register/register-frontValidation.js"></script>
+    <script src="/js/funcionesValidaciones/validaciones-front.js"></script>
+</body>
+</html>

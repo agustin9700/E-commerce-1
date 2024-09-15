@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- head -->
+<%- include ("./partials/head",{title: "Home" ,bootstrapActive: true})%>
+
+  <body>
+    <!-- header -->
+    <%- include ("./partials/header", { userlogueado: userlogueado, productsCart: productsCart }) %>
+ 
+<h4 class=" p-3">Resultado de Busqueda</h4>
+    <div class="container-article m-3 p-3 flex-wrap">
+      <% for (let i = 0; i < resultadosBusqueda.length; i++) { %>
+          <div class="articulos-home item">
+              <figure class="container-img">
+                  <img class="d-block h-100 w-100 img-fluid" src="<%= resultadosBusqueda[i].image %>" alt="">
+              </figure>
+              <i class="fa-solid fa-heart"></i>
+              <i class="fa-solid fa-plus"></i>
+              <span><%= resultadosBusqueda[i].name %></span>
+              <div class="precio-off">
+                  <span>$<%= resultadosBusqueda[i].price %></span>
+                  <span><%= resultadosBusqueda[i].discount %> %OFF</span>
+              </div>
+              <div class="envio-gratis">
+                  <% if (resultadosBusqueda[i].freeShipping) { %>
+                      <span>Envío Gratis</span>
+                  <% } else { %>
+                      <span> <br></span>
+                  <% } %>
+              </div>
+              <div class="button-container">
+                <a href="/productos/detalle/<%= resultadosBusqueda[i].id %>"> <button>Detalle</button></a>
+              </div>
+          </div>
+      <% } %>
+
+<% if (!resultadosBusqueda.length) { %>
+    <div class="col-12" style="margin-bottom: 150px;">
+        <h2 class="products-title" style="color: tomato;">No hay productos que coincidan con esa búsqueda</h2>
+    </div>
+<%}%>
+
+  </div>
+
+  
+  
+ 
+ 
+ 
+ 
+ 
+ <!--footer-->
+ <%- include ("./partials/footer") %>
+ <!--Boostrap script-->
+ <%- include ("./partials/scripts") %>
+
+</body>

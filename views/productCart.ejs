@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include ("./partials/head",{title: "Carrito de compras",bootstrapActive: true})%>
+<body>
+    <%- include ("./partials/header", { userlogueado: userlogueado, productsCart: productsCart }) %>
+    
+    <main class="productCart">
+        <div class="titulo-pagina">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <h2>Carrito de compras</h2>
+        </div>
+        <div class="mainCarrito">
+            <section class="section-product">
+                <div class="container-table">
+                    <table class="table cart-items">
+                        <thead>
+                            <tr>
+                                <th>Productos</th>
+                                <th class="descripcion"></th>
+                                <th>Precio</th>
+                                <th>Cantidad</th>
+                                <th>Subtotal</th>
+                                <th>Acción</th>
+                            </tr>
+                        </thead>
+                
+                        <tbody id="container-card">
+                           <!-- ... CARDS ... -->
+                        </tbody>
+                        
+                        
+                    </table>
+                    <div class="text-end">
+                        <span class="btn btn-danger" id="boton-vaciar">
+                            Vaciar Carrito
+                        </span>
+                    </div>
+                </div>
+            </section>
+            <section class="section-total">
+                <div class="container-table-total">
+                    <h3 class="total">Resumen de la compra</h3>
+                    <table>
+                        <tbody class="">
+                            <!-- <tr>
+                                <td>Descuento</td>
+                                <td><span id="descuento">  </span> %</td>
+                            </tr> -->
+                            <tr>
+                                <td>Total</td>
+                                <td>$ <span id="totalFinal"></span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div>
+                        <span class="btn btn-primary" id="boton-comprar" >
+                            <a href="#" class="boton-comprar">Comprar</a>
+                        </span>
+                    </div>
+                </div>
+            </section>
+        </div>    
+ <script src="/js/cart/cart.js"></script>
+</main>
+
+    
+    <%- include ("./partials/footer") %>
+
+</body>
+</html>

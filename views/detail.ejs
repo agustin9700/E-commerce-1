@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<%- include('./partials/head', {title: 'Detalle', bootstrapActive: true}) %>
+<head><link rel="stylesheet" href="/css/detail.css"></head>
+<body>
+	<!-- Header -->
+	<%- include('./partials/header', { userlogueado: userlogueado, productsCart: productsCart }) %>
+	<!-- /Header -->
+
+	<!-- product detail -->
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Detalle del producto: <%= p.name %></h2>
+			</div>
+		</div>
+		<div class="product-detail">
+			<div class="row">
+			
+				<div class="col-12 col-lg-8 d-flex flex-column justify-content-center align-items-center">
+					<img src="<%= p.image %>" alt="product image" class="product-detail-img">
+					<p class="product-detail-description">
+						<%= p.detail %>
+					</p>
+				</div>
+				<div class="col-12 col-lg-4">
+					<article class="product-detail-info">
+						<h2 class="product-detail-title"><%= p.name %></h2>
+						
+							<p class="product-detail-price small">
+								<span>$<%= toThousand(p.price)%></span>
+								
+								<b><%=p.discount%>% OFF</b>
+							</p>
+							<p class="product-detail-price">
+								$<%=toThousand(p.price - (p.price * p.discount / 100))%>
+							</p>
+						
+
+						<ul class="actions-list">
+							<li>
+								<i class="fas fa-credit-card"></i>
+								<p>Pagá en 12 cuotas sin interes</p>
+							</li>
+							<li>
+								<i class="fas fa-store"></i>
+								<p>Retiro gratis en locales del vendedor</p>
+							</li>
+						</ul>
+
+	<button type="button" id="agregarCarrito" onclick="addProductCart('<%= p.id %>')" class="btn btn-lg agregarCarrito" style="background-color: #FF6600; color: white; border-color: #FF6600;" >Agregar al carrito</button>
+	<a href="/productos" class="btn btn-lg agregarCarritoDetail" style="background-color: #FF6600; color: white; border-color: #FF6600; text-decoration: none; display: inline-block;">
+							Menu
+						  </a>
+					</article>
+			</div>
+			</div>
+		</div>
+	</div>
+	<!-- /product detail -->
+	<script src="/js/cart/addProductCart.js"></script>
+
+	<!-- footer -->
+	<%- include('./partials/footer') %>
+	<!-- /footer -->
+
+</body>

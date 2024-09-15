@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- head -->
+<%- include ("./partials/head",{title: "Home" ,bootstrapActive: true})%>
+
+  <body>
+    <!-- header -->
+    <%- include ("./partials/header", { userlogueado: userlogueado, productsCart: productsCart }) %>
+
+<marquee behavior="" class="text-success" direction="left">Promoción 2x1 en Pizza los Viernes. 
+
+  ¡Viernes de pizza! Pierde los días viernes y obtén un 2x1 en pizzas. Horario de atención: todos los días de 9:00 a 00:00. ¡No te lo pierdas!</marquee>
+      <div class="container-banner">
+        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item banner-version active">
+              <img src="./images/banner/banner-movil.png" class=" w-100" alt="...">
+              <img src="./images/banner/banner-tablet.png" class=" w-100" alt="...">
+              <img src="./images/banner/banner-pc.png" class=" w-100" alt="...">
+            </div>
+            <div class="carousel-item banner-version ">
+              <img src="./images/banner/banner-movil.png" class=" w-100" alt="...">
+              <img src="./images/banner/banner-tablet.png" class=" w-100" alt="...">
+              <img src="./images/banner/banner-pc.png" class=" w-100" alt="...">
+            </div>
+            <div class="carousel-item banner-version ">
+              <img src="./images/banner/banner-movil.png" class=" w-100" alt="...">
+              <img src="./images/banner/banner-tablet.png" class=" w-100" alt="...">
+              <img src="./images/banner/banner-pc.png" class=" w-100" alt="...">
+            </div>
+          </div>
+          <button class="carousel-control-prev justify-content-start" type="button"
+            data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next justify-content-end" type="button"
+            data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+
+      <main class="container-main">
+
+        <section class="upper-body">
+          <div>
+            <h2>Nuestros Productos</h2>
+          </div>
+          <ul>
+            <li>
+              <a href="/productos#pizza">
+                <div class="upper-body-img"> <img src="./images/productos/pizza.png" alt=""></div>
+                <div class="categoria-upper-body"><span></span></div>
+              </a>
+            </li>
+            <li>
+              <a href="/productos#hamburguesa">
+                <div class="upper-body-img"> <img src="./images/productos/burger.png" alt=""></div>
+                <div class="categoria-upper-body"><span></span></div>
+              </a>
+            </li>
+            <li>
+              <a href="/productos#papas">
+                <div class="upper-body-img"> <img src="./images/productos/papas.png" alt=""></div>
+                <div class="categoria-upper-body"><span></span></div>
+              </a>
+            </li>
+          </ul>
+
+        </section>
+
+        <div class="titulo-secciones mt-5">
+          <h2 class="text-center m-0  ">Recomendados</h2>
+        </div>
+
+
+        <div id="carouselExample" class="carousel slide container-carousel" data-bs-ride="carousel"
+          data-bs-interval="15000">
+          <div class="carousel-inner">
+            <% for (let i=0; i < datosProductos.length; i +=4) { %>
+              <div class="carousel-item <%= i === 0 ? 'active' : '' %>">
+                <div class="container-article">
+                  <!-- el primer valor de i es 0, en la segunda iteracion valdra 4 y luego 8, ya que el for exterior suma de a 4 empezando en 0 -->
+                  <% for (let j=i; j < i + 4 && j < datosProductos.length; j++) { %>
+                    <div class="articulos-home">
+                      <figure class="container-img">
+                        <img class="d-block h-100 w-100 img-fluid" src="<%= datosProductos[j].image %>" alt="">
+                      </figure>
+                      <i class="fa-solid fa-heart"></i>
+                      <i class="fa-solid fa-plus"></i>
+                      <span>
+                        <%= datosProductos[j].name %>
+                      </span>
+                      <div class="precio-off">
+                        <span>$<%= datosProductos[j].price %></span>
+                        <% if (datosProductos[j].discount) { %>
+                          <span><%= datosProductos[j].discount %> %OFF</span>
+                        <% } else { %>
+                          <span><br></span>
+                          <% } %>
+                      </div>
+                      <div class="envio-gratis">
+                        <% if (datosProductos[j].freeShipping) { %>
+                          <span>Envío Gratis</span>
+                          <% } else { %>
+                            <span><br></span>
+                            <% } %>
+                      </div>
+                      <div class="button-container">
+                        <a href="/productos/detalle/<%= datosProductos[j].id %>"> <button>Detalle</button></a>
+                      </div>
+                    </div>
+                    <% } %>
+                </div>
+              </div>
+              <% } %>
+          </div>
+          <button class="carousel-control-prev justify-content-center" type="button" data-bs-target="#carouselExample"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next justify-content-center" type="button" data-bs-target="#carouselExample"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+
+
+        <div class="anuncio">
+          <div class="card-anuncio">
+            <figure class="container-banner-anuncio"><img src="./images/banner/anuncio-burger.webp" alt=""></figure>
+            <div><span>Hasta 50% off en Pizzas los lunes!</span></div>
+          </div>
+          <div class="card-anuncio">
+            <figure class="container-banner-anuncio"><img src="./images/banner/anuncio-burger.webp" alt=""></figure>
+            <div><span>Envio gratis en tu primer pedido!</span></div>
+          </div>
+
+        </div>
+
+
+
+        <div class="sub-secciones">
+          <h2 class="text-left ms-2 ">Hamburguesas</h2>
+        </div>
+
+        <div id="carouselExample2" class="carousel slide container-carousel" data-bs-ride="carousel"
+          data-bs-interval="15000">
+          <div class="carousel-inner">
+            <% for (let i=0; i < datosHamb.length; i +=4) { %>
+              <div class="carousel-item <%= i === 0 ? 'active' : '' %>">
+                <div class="container-article">
+                  <!-- el primer valor de i es 0, en la segunda iteracion valdra 4 y luego 8, ya que el for exterior suma de a 4 -->
+                  <% for (let j=i; j < i + 4 && j < datosHamb.length; j++) { %>
+                    <div class="articulos-home">
+                      <figure class="container-img">
+                        <img class="d-block h-100 w-100 img-fluid" src="<%= datosHamb[j].image %>" alt="">
+                      </figure>
+                      <i class="fa-solid fa-heart"></i>
+                      <i class="fa-solid fa-plus"></i>
+                      <span>
+                        <%= datosHamb[j].name %>
+                      </span>
+                      <div class="precio-off">
+                        <span>$<%= datosHamb[j].price %></span>
+                        <% if (datosHamb[j].discount) { %>
+                          <span><%= datosHamb[j].discount %> %OFF</span>
+                        <% } else { %>
+                          <span><br></span>
+                          <% } %>
+                      </div>
+                      <div class="envio-gratis">
+                        <% if (datosHamb[j].freeShipping) { %>
+                          <span>Envío Gratis</span>
+                          <% } else { %>
+                            <span><br></span>
+                            <% } %>
+
+
+                      </div>
+                      <div class="button-container">
+                        <a href="/productos/detalle/<%= datosHamb[j].id %>">
+                          <button>Detalle</button>
+                        </a>
+                      </div>
+                    </div>
+                    <% } %>
+                </div>
+              </div>
+              <% } %>
+          </div>
+          <button class="carousel-control-prev justify-content-center" type="button" data-bs-target="#carouselExample2"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next justify-content-center" type="button" data-bs-target="#carouselExample2"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+
+
+        <section class="section-shop-info mt-5">
+          <div class="info-item">
+            <figure><img src="./images/img-info/payment.svg" alt=""></figure>
+            <h2>Forma de pago</h2>
+            <p><span>Ofrecemos múltiples opciones de pago para facilitar tu experiencia de compra.</span></p>
+          </div>
+          <div class="info-item">
+            <figure><img src="./images/img-info/shipping.svg" alt=""></figure>
+            <h2>Envios gratis</h2>
+            <p><span>Disfruta de envíos gratuitos en nuestro Plataforma con compras superiores a $10.000.</span></p>
+          </div>
+          <div class="info-item">
+            <figure><img src="./images/img-info/protected.svg" alt=""></figure>
+            <h2>Garantía de Satisfacción</h2>
+            <p><span> Si tu pedido no llegó como esperabas o no es exactamente lo que solicitaste, contáctanos.</span>
+            </p>
+          </div>
+
+
+        </section>
+      </main>
+      <script src="/js/modal-carrito.js"></script>
+      <!--footer-->
+      <%- include ("./partials/footer") %>
+        <!--Boostrap script-->
+        <%- include ("./partials/scripts") %>
+
+  </body>
+
+</html>

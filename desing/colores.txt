@@ -1,0 +1,6 @@
+Los colores utilizados son:
+Naranja = FF6600
+Blanco = FFFFFF
+Negro = 000000
+Gris = E8E8E8
+Amarillo = FFFF00

@@ -1,0 +1,48 @@
+<div class="dashboard-conten p-5">
+
+    <h1>Lista Productos</h1>
+
+    <div class="tabla">
+    <table class="table listaProducts mb-5">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Imagen</th>
+                    <th scope="col">Titulo</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Descuento</th>
+                    <th scope="col">Descripcion</th>
+                </tr>
+                
+            </thead>
+            <tbody>
+
+                <% productos.forEach (p => {%>
+               
+                <tr>
+                    <th scope="row"><%= p.id %></th>
+                    <td><img class="img-product" src="<%= p.image %>" width=80vw></td>
+                    <td><%= p.name %></td>
+                    <td>$<%= p.price %></td>
+                    <td><%= p.discount ? p.discount+"%" : "" %></td>
+                    <td><%= p.detail %></td>
+                    <td>
+                        <div class="btn-group" role="group">
+                            <a href="/admin/editar/<%= p.id %>" class="btn btn-warning">Editar</a>
+                            <a href="/admin/eliminar-producto/?id=<%=p.id%>&name=<%=p.name%>&imgD=<%=p.image%>" class="btn btn-danger">Eliminar</a>
+                        </div>
+                    </td>
+                </tr>
+
+                <% }) %>
+
+            </tbody>
+
+        </table>  
+    </div>
+
+    <div class="botonCrear">
+        <a href="/admin/crearProduct" class="btn btn-primary mb-8">Crear Producto</a>  
+    </div>
+        
+</div>

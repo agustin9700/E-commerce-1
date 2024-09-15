@@ -1,0 +1,128 @@
+[
+  {
+    "id": 1,
+    "category": "hamburguesas",
+    "name": "Classic Burger",
+    "price": 8000,
+    "discount": 15,
+    "freeShipping": true,
+    "image": "/images/productos/burgers/deluxe.jpg"
+  },
+  {
+    "id": 2,
+    "category": "pizzas",
+    "name": "Margherita Pizza",
+    "price": 10000,
+    "discount": 10,
+    "freeShipping": false,
+    "image": "/images/productos/burgers/classic.jpg"
+  },
+  {
+    "id": 3,
+    "category": "hamburguesas",
+    "name": "BBQ Burger",
+    "price": 9500,
+    "discount": 12,
+    "freeShipping": true,
+    "image": "/images/productos/burgers/classic.jpg"
+  },
+  {
+    "id": 4,
+    "category": "pizzas",
+    "name": "Pepperoni Pizza",
+    "price": 12000,
+    "discount": 8,
+    "freeShipping": false,
+    "image": "/images/productos/burgers/classic.jpg"
+  },
+  {
+    "id": 5,
+    "category": "hamburguesas",
+    "name": "Veggie Burger",
+    "price": 8500,
+    "discount": 10,
+    "freeShipping": true,
+    "image": "/images/productos/burgers/classic.jpg"
+  },
+  {
+    "id": 6,
+    "category": "pizzas",
+    "name": "Hawaiian Pizza",
+    "price": 11000,
+    "discount": 15,
+    "freeShipping": false,
+    "image": "/images/productos/burgers/classic.jpg"
+  },
+  {
+    "id": 7,
+    "category": "hamburguesas",
+    "name": "Spicy Burger",
+    "price": 9000,
+    "discount": 10,
+    "freeShipping": true,
+    "image": "/images/productos/burgers/classic.jpg"
+  },
+  {
+    "id": 8,
+    "category": "pizzas",
+    "name": "Mushroom Pizza",
+    "price": 10500,
+    "discount": 12,
+    "freeShipping": false,
+    "image": "/images/productos/burgers/classic.jpg"
+  },
+  {
+    "id": 9,
+    "category": "hamburguesas",
+    "name": "Double Cheeseburger",
+    "price": 9500,
+    "discount": 8,
+    "freeShipping": true,
+    "image": "/images/productos/burgers/classic.jpg"
+  },
+  {
+    "id": 10,
+    "category": "pizzas",
+    "name": "BBQ Pizza",
+    "price": 11500,
+    "discount": 10,
+    "freeShipping": false,
+    "image": "/images/productos/burgers/classic.jpg"
+  },
+  {
+    "id": 11,
+    "category": "hamburguesas",
+    "name": "Bacon Burger",
+    "price": 9200,
+    "discount": 12,
+    "freeShipping": true,
+    "image": "/images/productos/burgers/classic.jpg"
+  },
+  {
+    "id": 12,
+    "category": "pizzas",
+    "name": "Vegetarian Pizza",
+    "price": 9800,
+    "discount": 15,
+    "freeShipping": true,
+    "image": "/images/productos/burgers/classic.jpg"
+  },
+  {
+    "id": 13,
+    "category": "papas",
+    "name": "Classic Fries",
+    "price": 5000,
+    "discount": 0,
+    "freeShipping": true,
+    "image": "/images/productos/burgers/classic.jpg"
+  },
+  {
+    "id": 14,
+    "category": "papas",
+    "name": "Cheese Fries",
+    "price": 6500,
+    "discount": 0,
+    "freeShipping": true,
+    "image": "/images/productos/burgers/classic.jpg"
+  }
+]
