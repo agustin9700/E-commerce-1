@@ -15,10 +15,10 @@ const infoUserDBMapped = infoUserJSON.map((i =>{
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-     await queryInterface.bulkInsert('infousers', infoUserDBMapped, {});
+     await queryInterface.bulkInsert('infoUsers', infoUserDBMapped, {});
   },
 
   async down (queryInterface, Sequelize) {
-     await queryInterface.bulkDelete('infousers', null, {});
+     await queryInterface.bulkDelete('infoUsers', null, {});
   }
 };

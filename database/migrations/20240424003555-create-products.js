@@ -28,13 +28,8 @@ module.exports = {
         type: Sequelize.TEXT
       },
       category_id: {
-        type: Sequelize.INTEGER,
-        references:{
-          model:{
-            tableName:"categories"
-          },
-          key:"id"
-        }
+        type: Sequelize.INTEGER
+      
       },
       created_at: {
         allowNull: false,

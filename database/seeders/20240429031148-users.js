@@ -15,12 +15,12 @@ const usersDBMapped = usersJSON.map((u=>{
 module.exports = {
   async up (queryInterface, Sequelize) {
 
-    await queryInterface.bulkInsert('users',usersDBMapped , {});
+    await queryInterface.bulkInsert('Users',usersDBMapped , {});
   },
 
   async down (queryInterface, Sequelize) {
 
-    await queryInterface.bulkDelete('users', null, {});
+    await queryInterface.bulkDelete('Users', null, {});
      
   }
 };

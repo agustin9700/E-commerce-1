@@ -19,13 +19,8 @@ module.exports = {
         type: Sequelize.DECIMAL
       },
       user_id: {
-        type: Sequelize.INTEGER,
-        references:{
-          model:{
-            tableName:"users"
-          },
-          key:"id"
-        }
+        type: Sequelize.INTEGER
+        
       },
       created_at: {
         allowNull: false,

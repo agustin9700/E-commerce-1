@@ -9,10 +9,10 @@ const categoryDBMapped = categoryJSON.map((p=>{
 module.exports = {
   async up (queryInterface, Sequelize) {
     
-     await queryInterface.bulkInsert('categories', categoryDBMapped, {});
+     await queryInterface.bulkInsert('Categories', categoryDBMapped, {});
   },
 
   async down (queryInterface, Sequelize) {
-    await queryInterface.bulkDelete('categories', null, {});
+    await queryInterface.bulkDelete('Categories', null, {});
   }
 };
