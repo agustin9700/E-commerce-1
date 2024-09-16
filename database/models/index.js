@@ -11,9 +11,25 @@ const db = {};
 
 let sequelize;
 if (config.use_env_variable) {
-  sequelize = new Sequelize(process.env[config.use_env_variable], config);
+  sequelize = new Sequelize(process.env[config.use_env_variable], {
+    ...config,
+    pool: {
+      acquire: 30000, // Tiempo máximo de espera para obtener una conexión del grupo
+    },
+    dialectOptions: {
+      connectTimeout: 30000, // Tiempo de espera para la conexión en milisegundos
+    },
+  });
 } else {
-  sequelize = new Sequelize(config.database, config.username, config.password, config);
+  sequelize = new Sequelize(config.database, config.username, config.password, {
+    ...config,
+    pool: {
+      acquire: 30000, // Tiempo máximo de espera para obtener una conexión del grupo
+    },
+    dialectOptions: {
+      connectTimeout: 30000, // Tiempo de espera para la conexión en milisegundos
+    },
+  });
 }
 
 fs
